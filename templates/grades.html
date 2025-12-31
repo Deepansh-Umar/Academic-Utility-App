@@ -15,24 +15,26 @@
 
 <h1>Grade Calculator</h1>
 
-<div class="section">
-    <select id="level" onchange="updateSubjects()">
-        <option value="foundation">Foundation</option>
-        <option value="diploma">Diploma</option>
-    </select>
+<select id="mode" onchange="renderInputs()">
+    <option value="calc">Calculate Grade</option>
+    <option value="predict">Predict Grade</option>
+</select>
 
-    <select id="subject" onchange="renderInputs()"></select>
+<select id="level" onchange="updateSubjects()">
+    <option value="foundation">Foundation</option>
+    <option value="diploma">Diploma</option>
+</select>
 
-    <div id="inputs"></div>
+<select id="subject" onchange="renderInputs()"></select>
 
-<button onclick="predictMode=false; renderInputs()">Calculate Grade</button>
-<button onclick="predictMode=true; renderInputs()">Predict Grades</button>
+<div id="inputs"></div>
 
+<button onclick="run()">Run</button>
 
-    <div class="result" id="output"></div>
+<div class="result" id="output"></div>
+
 </div>
 
-</div>
 
 <script src="/static/js/grades.js"></script>
 </body>

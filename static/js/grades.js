@@ -1,7 +1,7 @@
 const gradeMap = [
     ["S",90],["A",80],["B",70],["C",60],["D",50],["E",40]
 ]
-let predictMode = false
+
 
 const courses = {
 foundation: {
@@ -236,9 +236,10 @@ renderInputs()
 function renderInputs() {
     inputs.innerHTML = ""
     const c = courses[level.value][subject.value]
+    const mode = document.getElementById("mode").value
 
     c.inputs.forEach(i=>{
-        if(predictMode && i==="F") return
+        if(mode==="predict" && i==="F") return
         const n = document.createElement("input")
         n.type = "number"
         n.id = i
@@ -246,6 +247,13 @@ function renderInputs() {
         inputs.appendChild(n)
     })
 }
+
+function run(){
+    const mode = document.getElementById("mode").value
+    if(mode==="calc") calculate()
+    else predict()
+}
+
 
 
 function calculate(){
